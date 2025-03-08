@@ -1,4 +1,4 @@
-project('rygel', 'vala', 'c', version : '0.44.1', meson_version : '>= 0.59.0')
+project('rygel', 'vala', 'c', version : '0.44.1', meson_version : '>= 0.64.0')
 vala = meson.get_compiler('vala')
 
 # Check for the required vala version
@@ -10,6 +10,7 @@ if not vala_version_found.version_compare(vala_version_required)
 endif
 
 install_doc = find_program('build-aux/meson/install-gtkdoc.py')
+config_generator = find_program('generate-conf-artifacts.py', dirs: [meson.project_source_root() / 'build-aux'])
 
 i18n = import('i18n')
 gnome = import('gnome')
