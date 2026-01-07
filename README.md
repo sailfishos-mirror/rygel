@@ -15,7 +15,7 @@ Important facts and features
   * Written largely in Vala language.
   * Provides APIs to ease the implementation of AV devices.
   * Export of on-disk media:
-    * Tracker plugin.
+    * Localsearch plugin.
     * MediaExport plugin: Recursively exports folders and files specified in the user configuration. This plugin supports all types of URIs that gio/gvfs and gstreamer can handle.
   * Export of media hierarchies provided by external applications through
     implementation of D-Bus MediaServer spec. Applications that utilize
@@ -55,9 +55,13 @@ Requirements
       * sqlite3
       * gupnp-dlna and gupnp-dlna-gst
       * gdk-pixbuf
+    * Localearch:
+      * tinysparql
     * Documentation:
       * valadoc
       * gtk-doc
+      * sphinx
+      * rst2man
 
   * Run-time:
     * Definitely needed:
@@ -81,8 +85,8 @@ References
   * http://www.vala-project.org
   * http://www.wikipedia.org/wiki/Media_server
   * http://www.upnp.org/specs/av/UPnP-av-MediaServer-v2-Device-20060531.pdf
-  * https://wiki.gnome.org/Projects/Tracker
+  * https://tracker.gnome.org/
   * https://wiki.gnome.org/Projects/DVBDaemon
-  * https://wiki.gnome.org/Projects/Rygel/MediaServer2Spec
+  * https://gnome.pages.gitlab.gnome.org/rygel/media-server2.html
   * http://www.mpris.org/2.0/spec/
 
