@@ -118,9 +118,7 @@ public class Rygel.EnvironmentConfig : GLib.Object, Configuration {
 
     public string get_string (string section,
                               string key) throws GLib.Error {
-        return this.get_string_variable (RYGEL_PREFIX + "_" +
-                                         section.up () + "_"  +
-                                         key.up ().replace ("-", "_"));
+        return this.get_string_variable (get_variable_name (section, key));
     }
 
     public Gee.ArrayList<string> get_string_list (string section,
@@ -140,9 +138,7 @@ public class Rygel.EnvironmentConfig : GLib.Object, Configuration {
                         int    min,
                         int    max)
                         throws GLib.Error {
-        return this.get_int_variable (RYGEL_PREFIX + "_" +
-                                      section.up () + "_"  +
-                                      key.up ().replace ("-","_"),
+        return this.get_int_variable (get_variable_name (section, key),
                                       min,
                                       max);
     }
@@ -162,9 +158,7 @@ public class Rygel.EnvironmentConfig : GLib.Object, Configuration {
     public bool get_bool (string section,
                           string key)
                           throws GLib.Error {
-        return this.get_bool_variable (RYGEL_PREFIX + "_" +
-                                       section.up () + "_"  +
-                                       key.up ().replace ("-","_"));
+        return this.get_bool_variable (get_variable_name (section, key));
     }
 
     private string get_string_variable (string variable) throws GLib.Error {
@@ -187,12 +181,19 @@ public class Rygel.EnvironmentConfig : GLib.Object, Configuration {
         return int.parse (val).clamp (min, max);
     }
 
-    private bool get_bool_variable (string variable) throws GLib.Error {
+    // This will return true if the environment variable with the given name is set
+    // doesn't matter which value.
+    private bool get_simple_bool_variable (string variable) throws GLib.Error {
         var enabled = Environment.get_variable (variable);
         if (enabled == null) {
             throw new ConfigurationError.NO_VALUE_SET ("No value available");
         }
 
         return true;
+    }
+
+    private string get_variable_name (string section, string key) {
+        return RYGEL_PREFIX + "_" + section.up () + "_"  +
+            key.up ().replace ("-","_");
     }
 }
