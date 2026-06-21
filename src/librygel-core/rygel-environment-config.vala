@@ -126,7 +126,7 @@ public class Rygel.EnvironmentConfig : GLib.Object, Configuration {
                                                   throws GLib.Error {
         var str = this.get_string (section, key);
         var value = new ArrayList<string> ();
-        foreach (var token in str.split (",", -1)) {
+        foreach (var token in str.split (";", -1)) {
             value.add (token);
         }
 
@@ -148,7 +148,7 @@ public class Rygel.EnvironmentConfig : GLib.Object, Configuration {
                                             throws GLib.Error {
         var str = this.get_string (section, key);
         var value = new ArrayList<int> ();
-        foreach (var token in str.split (",", -1)) {
+        foreach (var token in str.split (";", -1)) {
             value.add (int.parse (token));
         }
 
