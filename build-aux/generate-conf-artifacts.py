@@ -9,9 +9,14 @@ import textwrap
 import re
 import sys
 
+
 admonition_map = {"Note" : ".. note::", "Warning" : '.. warning::', "Example" : '.. example::'}
 admonition_regex = re.compile(r'%%(\w+): ')
 
+########### Text formatting helpers
+
+# Reflow a text to a given width paragraph-wise. Optionally can strip out special
+# markings if unused by a renderer
 def reflow_text(raw_description: str, width: int = 80, strip: bool = False) -> str:
     paragraphs = []
     if strip:
@@ -22,15 +27,19 @@ def reflow_text(raw_description: str, width: int = 80, strip: bool = False) -> s
 
     return "\n\n".join(paragraphs)
 
-
+# Comment out a whole section (used with conf renderer)
 def comment_text(raw_text: str, width: int = 80, strip: bool = False) -> str:
     return textwrap.indent(reflow_text(raw_text, 78, strip), "# ", lambda line: True)
 
+# Indent a block of text while keeping a maximum width
 def indent_text(raw_text: str, level: int = 0, maxwidth: int = 80, strip: bool = False) -> str:
     return textwrap.indent(reflow_text(raw_text, maxwidth - level * 4, strip),  " " * level * 4, lambda line: True)
 
 
-def render_example_conf(config, output):
+########### Render functions
+
+# Render default configuration file
+def render_example_conf(config: typing.List[typing.Dict], output: typing.TextIO):
     print("# Rygel default configuration\n", file=output)
     # generate the example documentation
     for section_number, section in enumerate(config):
@@ -66,7 +75,7 @@ def render_example_conf(config, output):
             print(f"{value['name']}={default}", file=output)
 
 
-def render_man_page(config, output):
+def render_man_page(config: typing.List[typing.Dict], output: typing.TextIO):
     print("==========", file=output)
     print("rygel.conf", file=output)
     print("==========\n", file=output)
@@ -131,7 +140,7 @@ def _render_doc_paragraph(text: str, output: typing.TextIO, base_indent: int = 0
             print(file=output)
 
 
-def render_documentation(config, output):
+def render_documentation(config: typing.List[typing.Dict], output: typing.TextIO):
 
     print("Rygel's default configuration file", file=output)
     print("----------------------------------", file=output)
