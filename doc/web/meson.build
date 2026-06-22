@@ -31,8 +31,8 @@ endforeach
 subdir('img')
 
 config_file_rst = custom_target('config-file.rst',
-  input: [meson.project_source_root() / 'build-aux/generate-conf-artifacts.py', meson.project_source_root() / 'data/configuration.yaml'],
-  depend_files: [meson.project_source_root() / 'build-aux/generate-conf-artifacts.py', meson.project_source_root() / 'data/configuration.yaml'],
+  input: ['../../build-aux/generate-conf-artifacts.py', '../../data/configuration.yaml'],
+  depend_files: ['../../build-aux/generate-conf-artifacts.py', '../../data/configuration.yaml'],
   output: 'config-file.rst',
   command: [python, '@INPUT@', '-mrst', '@OUTPUT@']
 )
