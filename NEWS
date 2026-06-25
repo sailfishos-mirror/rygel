@@ -1,3 +1,48 @@
+46.alpha
+========
+
+New and updated dependencies:
+ - pyyaml
+ - sphinx + furo theme for building the website
+ - meson >= 1.8.0
+ - rst2man
+
+All:
+ - Remove RUIH implementation
+
+Core:
+ - Allow proper boolean settings through environment variables
+ - Align list definition through environment with config file
+ - Remove BasicManagement and EnergyManagement
+
+Docs:
+ - Host website inside repository
+
+Bugs fixed in this release:
+ - https://gitlab.gnome.org/GNOME/rygel/issues/83
+
+All contributors to this release:
+ - Jens Georg <mail@jensge.org>
+ - Jose Riha <jose1711@gmail.com>
+ - Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+ - Jordan Petridis <jpetridis@gnome.org>
+ - Saikeo Kavhanxay <kavhanxay@hotmail.com>
+ - Aefgh Threenine <aefgh39622@gmail.com>
+ - Davide Ferracin <davide.ferracin@icloud.com>
+ - Andi Chandler <andi@gowling.com>
+ - Alexander Alexandrov Shopov <ash@kambanaria.org>
+ - Andika Triwidada <atriwidada@gnome.org>
+
+Added/updated translations:
+ - bg.po, courtesy of twlvnn kraftwerk
+ - en_GB.po, courtesy of Andi Chandler
+ - id.po, courtesy of Kukuh Syafaat
+ - it.po, courtesy of Gianvito Cavasoli
+ - kk.po, courtesy of Baurzhan Muftakhidinov
+ - lo.po, courtesy of FULL NAME
+ - sk.po, courtesy of Dušan Kazik
+ - th.po, courtesy of Akom Chotiphantawanon
+
 45.1 (stable)
 =============
 
