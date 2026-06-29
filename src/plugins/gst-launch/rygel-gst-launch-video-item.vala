@@ -40,4 +40,12 @@ public class Rygel.GstLaunch.VideoItem : Rygel.VideoItem {
         this.mime_type = mime_type;
         this.add_uri ("gst-launch://" + GLib.Uri.escape_string (launch_line));
     }
+
+    internal override MediaResource get_primary_resource() {
+        var res = base.get_primary_resource ();
+        res.dlna_flags |= DLNAFlags.S0_INCREASE | DLNAFlags.SN_INCREASE;
+        res.dlna_operation = DLNAOperation.NONE;
+
+        return res;
+    }
 }
