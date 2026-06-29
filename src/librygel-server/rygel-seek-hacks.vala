@@ -43,7 +43,8 @@ internal class Rygel.SeekHacks : ClientHacks {
                                  ".*PLAYSTATION 3.*|" +
                                  ".*SHARP-AQUOS-DMP.*|" +
                                  ".*alphanetworks.*|" +
-                                 ".*KnOS/3.2.*";
+                                 ".*KnOS/3.2.*|" +
+                                 ".*Reciva.*";
 
     public SeekHacks (ServerMessage? message = null) throws ClientHacksError {
         base (AGENT, message);
