@@ -159,8 +159,8 @@ def render_documentation(config: typing.List[typing.Dict], output: typing.TextIO
                 if len(section["name"]) > 0:
                     print(f".. _{section['name'].lower()}_configuration:\n", file=output)
                     heading = f"Section [{section['name']}]"
-                    print("\n" + heading, file=output)
-                    print('~' * len(heading) + "\n", file=output)
+                    print(heading, file=output)
+                    print('^' * len(heading) + "\n", file=output)
 
             _render_doc_paragraph(section["description"], output)
 
