@@ -80,7 +80,7 @@ public class Rygel.PlaybinPlayer : GLib.Object, Rygel.MediaPlayer {
                                         "video/x-wmv",
                                         "video/x-wma",
                                         "video/x-msvideo",
-                                        "video/x-3ivx",
+                                        "video/x-flv",
                                         "video/x-3ivx",
                                         "video/x-matroska",
                                         "video/x-mkv",
